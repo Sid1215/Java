@@ -1,0 +1,17 @@
+class Solution {
+    int missingNumber(int arr[]) {
+        int x1 = 0, x2 = 0;
+        int n = arr.length + 1;
+
+        for (int i = 0; i < n - 1; i++) {
+            x2 ^= arr[i];
+        }
+
+        for (int i = 1; i <= n; i++) {
+            x1 ^= i;
+        }
+
+        // Missing number is the XOR of xor1 and xor2
+        return x1 ^ x2;
+    }
+}
