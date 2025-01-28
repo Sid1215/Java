@@ -1,0 +1,26 @@
+   class Solution {
+    public boolean findTriplet(int[] arr) {
+        int n = arr.length;
+    
+        Arrays.sort(arr);
+        for (int i = n - 1; i >= 0; i--) {
+            int j = 0;
+            int k = i - 1;
+            
+            while (j < k) {
+                
+                if (arr[i] == arr[j] + arr[k]) {
+                    return true;
+                }
+        
+                else if (arr[i] > arr[j] + arr[k]) {
+                    j++;
+                } else {
+                    k--;
+                }
+            }
+        }
+        return false;
+    }
+}
+
